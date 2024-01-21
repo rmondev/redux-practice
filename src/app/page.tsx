@@ -5,8 +5,11 @@ import { increment, decrement } from '@/store/CounterSlice'
 import { setTrue, setFalse } from '@/store/ShowIfTrueSlice'
 import { setUser, resetUser } from '@/store/UserSlice';
 import { RootState } from '@/store/store'
+import { UserData} from '@/store/UserSlice'
+
 
 import ShowIfTrue from '@/components/ShowIfTrue'
+import React, { useState, useEffect } from 'react';
 
 
 
@@ -24,9 +27,37 @@ export default function Home() {
   const isActive = useSelector((state : RootState) => state.user.isActive)
   const firstName = useSelector((state : RootState) => state.user.firstName)
   const lastName = useSelector((state : RootState) => state.user.lastName)
-  const dateCreated = useSelector((state : RootState) => state.user.dateCreated)
+  //const dateCreated = useSelector((state : RootState) => state.user.dateCreated)
+
+  // Declare dateCreated state variable and its setter function
+  const [dateCreated, setDateCreated] = useState('');
+
+  // ...existing useSelector calls...
+
+  useEffect(() => {
+    setDateCreated(new Date().toISOString());
+  }, []);
+
+  // ...rest of your component...
+
+  const User: UserData = {
+    user: 'John',
+    password: 'password',
+    confirmPassword: 'password',
+    email: 'jon@bailey.com',
+    terms: true,
+    isActive: true,
+    firstName: 'John',
+    lastName: 'Bailey',
+    dateCreated: dateCreated
+  }
+
+  
+
 
   const dispatch = useDispatch()
+
+  dispatch(setUser(User))
 
   return (
    <>

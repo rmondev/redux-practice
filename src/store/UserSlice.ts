@@ -14,15 +14,15 @@ type UserData = {
 };
 
 const initialState: UserData = {  
-  user: 'rmondev',
-  password: 'password1',
-  confirmPassword: 'password1',
-  email: 'rmondev@gmail.com',
-  terms: true,
-  firstName: 'Riccardo',
-  lastName: 'Moncada',
-  isActive: true,
-  dateCreated: '01212024'
+  user: '',
+  password: '',
+  confirmPassword: '',
+  email: '',
+  terms: false,
+  firstName: '',
+  lastName: '',
+  isActive: false,
+  dateCreated: ''
 }
 
 export const userSlice = createSlice({
