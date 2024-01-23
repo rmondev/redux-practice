@@ -5,28 +5,26 @@ import { increment, decrement } from '@/store/CounterSlice'
 import { setTrue, setFalse } from '@/store/ShowIfTrueSlice'
 import { setUser, resetUser } from '@/store/UserSlice';
 import { RootState } from '@/store/store'
-import { UserData} from '@/store/UserSlice'
+//import { UserData } from '@/store/UserSlice'
+
+//import UserData from '@/store/AppTypes'
 
 
 import ShowIfTrue from '@/components/ShowIfTrue'
 import React, { useState, useEffect } from 'react';
 
-
-
-
-
 export default function Home() {
 
   const showIfTrue = useSelector((state : RootState) => state.showIfTrue.value)
   const count = useSelector((state : RootState) => state.counter.value)
-  const user = useSelector((state : RootState) => state.user.user)
-  const password = useSelector((state : RootState) => state.user.password)
-  const email = useSelector((state : RootState) => state.user.email)
-  const terms = useSelector((state : RootState) => state.user.terms)
-  const confirmPassword = useSelector((state : RootState) => state.user.confirmPassword)
-  const isActive = useSelector((state : RootState) => state.user.isActive)
-  const firstName = useSelector((state : RootState) => state.user.firstName)
-  const lastName = useSelector((state : RootState) => state.user.lastName)
+  // const user = useSelector((state : RootState) => state.user.user)
+  // const password = useSelector((state : RootState) => state.user.password)
+  // const email = useSelector((state : RootState) => state.user.email)
+  // const terms = useSelector((state : RootState) => state.user.terms)
+  // const confirmPassword = useSelector((state : RootState) => state.user.confirmPassword)
+  // const isActive = useSelector((state : RootState) => state.user.isActive)
+  // const firstName = useSelector((state : RootState) => state.user.firstName)
+  // const lastName = useSelector((state : RootState) => state.user.lastName)
   //const dateCreated = useSelector((state : RootState) => state.user.dateCreated)
 
   // Declare dateCreated state variable and its setter function
@@ -40,27 +38,29 @@ export default function Home() {
 
   // ...rest of your component...
 
-  const User: UserData = {
-    user: 'John',
-    password: 'password',
-    confirmPassword: 'password',
-    email: 'jon@bailey.com',
-    terms: true,
-    isActive: true,
-    firstName: 'John',
-    lastName: 'Bailey',
-    dateCreated: dateCreated
-  }
 
+ 
+
+  // const User: UserData = {
+  //   user: 'John',
+  //   password: 'password',
+  //   confirmPassword: 'password',
+  //   email: 'jon@bailey.com',
+  //   terms: true,
+  //   isActive: true,
+  //   firstName: 'John',
+  //   lastName: 'Bailey',
+  //   dateCreated: dateCreated
+  // }
   
-
 
   const dispatch = useDispatch()
 
-  dispatch(setUser(User))
+  // dispatch(setUser(User))
 
   return (
    <>
+   <section>
     <div>
       <div>
         <button
@@ -79,7 +79,7 @@ export default function Home() {
       </div>
     </div>
 
-    <div>
+     <div>
         <button
           aria-label="Set True"
           onClick={() => dispatch(setTrue())}
@@ -95,18 +95,20 @@ export default function Home() {
         </button>
     </div>
 
-    <div>
-      <h1>User: {user}</h1>
-      <h1>Password: {password}</h1>
-      <h1>Confirm Password: {confirmPassword}</h1>
-      <h1>Email: {email}</h1>
-      <h1>Terms: {terms.toString()}</h1>
-      <h1>Active: {isActive.toString()}</h1>
-      <h1>First Name: {firstName}</h1>
-      <h1>Last Name: {lastName}</h1>
-      <h1>Date Created: {dateCreated}</h1>
-      
+    {/* <div>
+      <p>User: {user}</p>
+      <p>Password: {password}</p>
+      <p>Confirm Password: {confirmPassword}</p>
+      <p>Email: {email}</p>
+      <p>Terms: {terms.toString()}</p>
+      <p>Active: {isActive.toString()}</p>
+      <p>First Name: {firstName}</p>
+      <p>Last Name: {lastName}</p>
+      {/* <p>Date Created: {dateCreated}</p> 
     </div>
+     */}
+
+    </section>
    </>
   )
 }

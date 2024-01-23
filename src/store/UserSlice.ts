@@ -1,17 +1,20 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import UserData from '@/store/AppTypes'
 
-type UserData = {
-  user: string;
-  password: string;
-  confirmPassword: string;
-  email: string;
-  terms: boolean;
-  firstName: string;
-  lastName: string;
-  isActive: boolean;
-  dateCreated: string;
+// type UserData = {
+//   user: string;
+//   password: string;
+//   confirmPassword: string;
+//   email: string;
+//   terms: boolean;
+//   firstName: string;
+//   lastName: string;
+//   isActive: boolean;
+//   dateCreated: string;
 
-};
+// };
+
+
 
 const initialState: UserData = {  
   user: '',
